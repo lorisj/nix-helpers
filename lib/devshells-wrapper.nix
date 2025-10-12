@@ -1,10 +1,10 @@
 # wraps devShells, adds NIX_SHELL_NAME with name of shell
 {
   pkgs,
-  devShells,
   mkShell ? pkgs.mkShell,
   ...
 }:
+devShells:
 let
   lib = pkgs.lib;
 in
