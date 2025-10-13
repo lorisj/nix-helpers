@@ -1,8 +1,6 @@
 # wraps devShells, adds NIX_SHELL_NAME with name of shell
 {
   pkgs,
-  mkShell ? pkgs.mkShell,
-  ...
 }:
 devShells:
 let
@@ -10,7 +8,7 @@ let
 in
 lib.mapAttrs (
   name: cfg:
-  mkShell (
+  pkgs.mkShell (
     cfg
     // {
       env = (cfg.env or { }) // {

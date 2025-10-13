@@ -6,10 +6,10 @@
   };
 
   outputs =
-    { self, nixpkgs }:
+    { self }:
     {
       lib = {
-        devshells-wrapper = import ./lib/devshells-wrapper.nix;
+        devshells-wrapper = import ./lib/devshells-wrapper.nix { inherit pkgs; };
       };
     };
 }

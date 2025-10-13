@@ -14,21 +14,25 @@
     }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      devshells-wrapper = nix-helpers.lib.devshells-wrapper;
     in
     {
-      devShells.x86_64-linux = nix-helpers.lib.devshells-wrapper { inherit pkgs; } {
-        shell1 = {
-          packages = [ pkgs.hello ];
-          shellHook = ''
-            echo $NIX_SHELL_NAME
-          '';
-        };
-        shell2 = {
-          packages = [ pkgs.hello ];
-          shellHook = ''
-            echo $NIX_SHELL_NAME
-          '';
-        };
-      };
+
+      devShells.x86_64-linux = (
+        (devshells-wrapper) {
+          shell1 = {
+            packages = [ pkgs.hello ];
+            shellHook = ''
+              echo $NIX_SHELL_NAME
+            '';
+          };
+          shell2 = {
+            packages = [ pkgs.hello ];
+            shellHook = ''
+              echo $NIX_SHELL_NAME
+            '';
+          };
+        }
+      );
     };
 }
