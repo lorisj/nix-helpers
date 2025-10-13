@@ -9,5 +9,6 @@ final: prev: rec {
         };
       }
     );
-  mkShellsWithName = name: attrs: mkShell (attrs // { name = name; });
+  mkShellsWithName =
+    shellsAttrs: prev.lib.mapAttrs (name: attrs: mkShell (attrs // { name = name; })) shellsAttrs;
 }

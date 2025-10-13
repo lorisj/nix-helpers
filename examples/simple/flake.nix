@@ -22,19 +22,29 @@
     in
     {
 
-      devShells.${system} = pkgs.mkShellsWithName {
-        shell1 = {
-          packages = [ pkgs.hello ];
-          shellHook = ''
-            echo $NIX_SHELL_NAME
-          '';
+      devShells.${system} =
+        pkgs.mkShellsWithName {
+          shell1 = {
+            packages = [ pkgs.hello ];
+            shellHook = ''
+              echo $NIX_SHELL_NAME
+            '';
+          };
+          shell2 = {
+            packages = [ pkgs.hello ];
+            shellHook = ''
+              echo $NIX_SHELL_NAME
+            '';
+          };
+        }
+        // {
+          shell3 = pkgs.mkShell {
+            name = "shell3NameOverride";
+            packages = [ pkgs.hello ];
+            shellHook = ''
+              echo $NIX_SHELL_NAME
+            '';
+          };
         };
-        shell2 = {
-          packages = [ pkgs.hello ];
-          shellHook = ''
-            echo $NIX_SHELL_NAME
-          '';
-        };
-      };
     };
 }
