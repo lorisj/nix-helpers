@@ -13,13 +13,16 @@
       nix-helpers,
     }:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      devshells-wrapper = nix-helpers.lib.devshells-wrapper;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ nix-helpers.overlays.devshell-override ];
+      };
+      lib = pkgs.lib;
     in
     {
 
-      devShells.x86_64-linux = (
-        (devshells-wrapper) {
+      devShells.${system} = pkgs.mkShellsWithName {
           shell1 = {
             packages = [ pkgs.hello ];
             shellHook = ''
@@ -33,6 +36,5 @@
             '';
           };
         }
-      );
     };
 }

@@ -8,8 +8,8 @@
   outputs =
     { self }:
     {
-      lib = {
-        devshells-wrapper = import ./lib/devshells-wrapper.nix { inherit pkgs; };
+      overlays = {
+        devshell-override = import ./lib/devshell-override.nix;
       };
     };
 }
