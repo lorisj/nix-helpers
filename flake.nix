@@ -11,5 +11,8 @@
       overlays = {
         devshell-override = import ./lib/devshell-override.nix;
       };
+      lib = {
+        find-folders-with-filename = import ./lib/find-folders-with-filename.nix;
+      };
     };
 }
