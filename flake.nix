@@ -6,7 +6,7 @@
   };
 
   outputs =
-    { }:
+    { self, ... }:
     {
       overlays = {
         devshell-override = import ./lib/devshell-override.nix;
