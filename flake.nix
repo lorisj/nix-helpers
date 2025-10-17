@@ -13,6 +13,7 @@
       };
       lib = {
         find-folders-with-filename = import ./lib/find-folders-with-filename.nix;
+        services-module = import ./lib/services-module.nix;
       };
     };
 }

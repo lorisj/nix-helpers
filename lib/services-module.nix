@@ -15,6 +15,7 @@
   serviceMap,
   optionName,
   description,
+  defaultServices = builtins.attrNames serviceMap; # default => all services enabled
 }:
 {
   pkgs,
@@ -26,7 +27,7 @@
 
   options.${optionName}.services = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = builtins.attrNames serviceMap; # default => all services enabled
+    default = defaultServices; 
     inherit description;
   };
 
