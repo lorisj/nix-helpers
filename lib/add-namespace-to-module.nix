@@ -7,7 +7,7 @@ let
   # move anything of the form config.${outerNamespace}.x to config.x:
   configForInner =
     if (config ? ${outerNamespace}) then
-      (builtins.removeAttrs config [ oute rNamespace ]) // (config.${outerNamespace})
+      (builtins.removeAttrs config [ outerNamespace ]) // (config.${outerNamespace})
     else
       config;
 
