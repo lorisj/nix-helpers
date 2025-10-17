@@ -13,8 +13,9 @@
       };
       lib = {
         find-folders-with-filename = import ./lib/find-folders-with-filename.nix;
-        services-module = import ./lib/services-module.nix;
-        simple-service = import ./lib/simple-service.nix;
+        map-keys = import ./lib/map-keys.nix;
+        module-list = import ./lib/module-list.nix;
+        add-namespace-to-module = import ./lib/add-namespace-to-module.nix;
       };
     };
 }
