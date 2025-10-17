@@ -9,7 +9,8 @@
 #}
 # then use with:
 # # in nixos config:
-# myService.services = [ "service1" "service2"]
+# myService.services = [ "service1" ] # omits service2, because by default, all services are enabled
+
 {
   serviceMap,
   optionName,
@@ -25,7 +26,7 @@
 
   options.${optionName}.services = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = [ ];
+    default = builtins.attrNames serviceMap; # default => all services enabled
     inherit description;
   };
 
