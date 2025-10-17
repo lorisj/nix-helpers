@@ -12,10 +12,10 @@
 # myService.services = [ "service1" ] # omits service2, because by default, all services are enabled
 
 {
-  serviceMap,
   optionName,
   description,
   defaultServices = builtins.attrNames serviceMap; # default => all services enabled
+  serviceMap,
 }:
 {
   pkgs,
