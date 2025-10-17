@@ -30,7 +30,7 @@
 
       allModules = lib.unique (lib.concatMap (name: subModuleMap.${name}) defaultEnabledModules);
     in
-    lib.mkIf config.${name}.enabled {
+    lib.mkIf config.${name}.enable {
       imports = builtins.map (module: addNamespaceToModule module) allModules;
     };
 }
