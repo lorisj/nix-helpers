@@ -10,8 +10,8 @@ let
       in
       nixFiles
       ++ concatMap (
-        e: map (f: "${e}/${f}") (recursiveFindNixFiles (startingDir + "/${e}") fileName)
+        e: map (f: "${e}/${f}") (recursiveFindFiles (startingDir + "/${e}") fileName)
       ) directories
     );
 in
-dir: fileName: map (e: dir + "/${e}") (recursiveFindNixFiles dir fileName)
+dir: fileName: map (e: dir + "/${e}") (recursiveFindFiles dir fileName)
