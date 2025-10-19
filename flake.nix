@@ -15,6 +15,7 @@
         map-keys = import ./lib/map-keys.nix;
         find-nix-files = import ./lib/find-nix-files.nix;
         find-all-files-by-name = import ./lib/find-all-files-by-name.nix;
+        replace-by-set = import ./lib/replace-by-set.nix;
       };
     };
 }
