@@ -13,7 +13,7 @@ In a nix flake, add `nix-helpers` as an input, and expose it in outputs:
   };
   outputs = { nix-helpers, ...}: {
     # ... rest of your flake ...
-  }
+  };
 }
 ```
 
