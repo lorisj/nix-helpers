@@ -18,8 +18,8 @@
     {
       overlays = {
         devshell-override = import ./lib/devshell-override.nix;
-        lib-overlay = final: prev: {
-          lib = prev.lib.extend (finalI: prevI: myLib);
+        nhLib-overlay = final: prev: {
+          nhLib = myLib;
         };
       };
       lib = myLib;
