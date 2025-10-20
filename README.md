@@ -4,13 +4,21 @@ This repo contains nix helper functions/overlays that I reuse.
 
 
 ## Installation
-In a nix flake, add `nix-helpers` as an input:
+In a nix flake, add `nix-helpers` as an input, and expose it in outputs:
 ```nix
+{
   inputs = {
     ...
     nix-helpers.url = "github:lorisj/nix-helpers?ref=main";
   };
+  outputs = { nix-helpers, ...}: {
+    # ... rest of your flake ...
+  }
+}
 ```
+
+
+Then all of the expressions below should be defined.
 
 
 
