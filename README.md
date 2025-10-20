@@ -56,7 +56,7 @@ This lets you display `NIX_SHELL_NAME` in your terminal, so that you can tell wh
 ### `nix-helpers.overlays.nhLib-overlay :: Overlay`
 Overlay that adds `nhLib` (which contains all functions in `nix-helpers.lib` to `pkgs`.
 
-TODO: just make overlay for `lib` maybe
+**TODO: just make overlay for `lib` maybe**
 ### `nix-helpers.lib.find-nix-files :: Path -> [Path]` 
 Returns paths of all nix files inside a given directory.
 
@@ -94,4 +94,4 @@ Takes in attribute-set, and string, replaces all instances of keys of attribute-
 This is useful when you want to modify config files. For instance see [github.com/lorisj/nixos-config/blob/main/modules/home/terminal/starship.nix](https://github.com/lorisj/nixos-config/blob/main/modules/home/terminal/starship.nix) where it replaces all strings of the form `colors.base00, colors.base01` in a TOML file with their actual colors coming from the configured nix-colors.
 
 
-TODO: add lib as dep instead of input to func
+**TODO: add lib as dep instead of input to func**
