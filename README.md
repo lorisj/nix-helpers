@@ -15,7 +15,7 @@ In a nix flake, add `nix-helpers` as an input:
 
 
 ## Reference
-### `nix-helpers.overlays.devshell-overlay : Overlay` 
+### `nix-helpers.overlays.devshell-overlay :: Overlay` 
 Overlay that adds `mkShellsWithName` to pkgs, which allows you to make an attrset of devShells, and wraps each one to set `$NIX_SHELL_NAME` to its corresponding name.
 #### Example
 ```nix
@@ -77,7 +77,7 @@ running `find-all-files-by-name ./. "module.nix"` would yield `[ ./folder1/modul
 
 This is useful for importing only specific files in a given directory. For instance see [github.com/lorisj/nixos-config/blob/main/flake.nix](https://github.com/lorisj/nixos-config/blob/main/flake.nix), where `flake.nix` only imports all `/hosts/**/configuration.nix` files, each of which is a flake-parts module that represents a system configuration. 
 
-### `nix-helpers.lib.replace-by-set :: {lib : typeof LIB} -> AttrSet -> String -> AttrSet`
+### `nix-helpers.lib.replace-by-set :: {lib :: typeof LIB} -> AttrSet -> String -> AttrSet`
 Takes in attribute-set, and string, replaces all instances of keys of attribute-set with their values.
 #### Example
 `replace-by-set lib ({a : "A", b: "B"}) "abcde" == "ABcde"`
