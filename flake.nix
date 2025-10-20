@@ -22,5 +22,6 @@
           lib = prev.lib.extend (finalI: prevI: myLib);
         };
       };
+      lib = myLib;
     };
 }
